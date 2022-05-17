@@ -1,0 +1,17 @@
+/* https://stackoverflow.com/questions/3656467/is-it-possible-to-focus-on-a-div-using-javascript-focus-function */
+.group:hover,
+.group:focus {
+  background-color: #4f46e5;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.group:hover svg,
+.group:focus svg {
+  stroke: #f8fafc;
+}
+
+.group:hover p,
+.group:focus p {
+  color: #f8fafc;
+}
