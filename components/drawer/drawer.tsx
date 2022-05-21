@@ -7,8 +7,13 @@ export interface drawerProps {
 
 export default function Drawer(props: drawerProps) {
   return (
-    <div className="fixed top-0 left-0 w-80 h-full rounded-xl p-3">
-      <div className="h-full w-full bg-white drop-shadow-md rounded-xl p-3 max-w-full">
+    <div className="fixed top-3 left-3 w-80 h-full rounded-xl">
+      {/**
+       * Avoid using full-width/margin if use fixed position
+       * Try using top left bottom right instread
+       */}
+
+      <div className="h-full bg-white drop-shadow-md rounded-xl p-3 max-w-full">
         <div className="w-full h-20 bg-slate-100 rounded-xl"></div>
         <div className="border-slate-100 border-solid border-01 flex grow my-2" />
         {/* don't use full width when using padding */}
