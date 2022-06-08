@@ -8,13 +8,12 @@ const Dashboard = React.lazy(() => import('./pages/dashboard/dashboard'));
 const Blog = React.lazy(() => import('./pages/blog/blog'));
 
 export default function App() {
-  const routes = new DashboardRoutes();
   return (
     <BrowserRouter>
       <React.Suspense fallback={<div>...</div>}>
         <Routes>
-          <Route path={routes.blog} element={<Blog />} />
-          <Route path={routes.dashboard} element={<Dashboard />} />
+          <Route path={DashboardRoutes.blog} element={<Blog />} />
+          <Route path={DashboardRoutes.dashboard} element={<Dashboard />} />
         </Routes>
       </React.Suspense>
     </BrowserRouter>

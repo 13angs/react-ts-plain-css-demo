@@ -1,9 +1,13 @@
-abstract class RouteAbs {
-  abstract dashboard: string;
-  abstract blog: string;
+interface Routes {
+  dashboard: string;
+  blog: string;
 }
 
-export default class DashboardRoutes extends RouteAbs {
-  dashboard = '/';
-  blog = '/blogs';
-}
+const dashboard = '/dashboard';
+
+const DashboardRoutes: Routes = {
+  dashboard,
+  blog: `${dashboard}/blogs`,
+};
+
+export default DashboardRoutes;
