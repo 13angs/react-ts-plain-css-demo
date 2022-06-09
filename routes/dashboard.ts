@@ -3,6 +3,10 @@ interface Routes {
   blog: string;
 }
 
+interface PublicRoutes {
+  landing: string;
+}
+
 const dashboard = '/dashboard';
 
 const DashboardRoutes: Routes = {
@@ -10,4 +14,8 @@ const DashboardRoutes: Routes = {
   blog: `${dashboard}/blogs`,
 };
 
-export default DashboardRoutes;
+const routes: PublicRoutes = {
+  landing: '/',
+};
+
+export { DashboardRoutes };

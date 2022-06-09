@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './drawer.module.css';
 import { useNavigate } from 'react-router-dom';
-import DashboardRoutes from '../../routes/dashboard';
+import { DashboardRoutes } from '../../routes/dashboard';
 
 export interface drawerProps {
   children?: React.ReactNode;
