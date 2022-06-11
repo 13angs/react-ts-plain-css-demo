@@ -14,16 +14,27 @@ interface pdfDetailProps {
 
 const pdfs = [
   {
-    file: 'https://drive.google.com/file/d/11YNhN4OKFnzSD5uscMCNlxhWpv7-n9Da/preview',
+    file: {
+      download:
+        'https://drive.google.com/uc?id=11YNhN4OKFnzSD5uscMCNlxhWpv7-n9Da&export=download',
+      preview:
+        'https://drive.google.com/file/d/11YNhN4OKFnzSD5uscMCNlxhWpv7-n9Da/preview',
+    },
     name: 'Automate the boring stuff using python',
   },
   {
-    file: 'https://drive.google.com/file/d/1eVeihZT7iBVGbo_RHfEmmlhzhlVvzN3F/preview',
+    file: {
+      download:
+        'https://drive.google.com/uc?id=1eVeihZT7iBVGbo_RHfEmmlhzhlVvzN3F&export=download',
+      preview:
+        'https://drive.google.com/file/d/1eVeihZT7iBVGbo_RHfEmmlhzhlVvzN3F/preview',
+    },
     name: 'ReactJs with Redux',
   },
 ];
 
 export default function PdfDetail(props: pdfDetailProps) {
+  const [loading, setLoading] = React.useState(true);
   // const { pdfName, file } = props;
   const { pdfId } = useParams();
   const [pdf, setPdf] = React.useState(null);
@@ -38,10 +49,17 @@ export default function PdfDetail(props: pdfDetailProps) {
 
   return (
     <div className="w-full">
-      <h1 className="text-xl font-bold text-center">{pdf.name}</h1>
+      <h1 className="text-xl font-bold text-center">
+        <a href={pdf.file.download} download>
+          {pdf.name}
+        </a>
+      </h1>
       <div className="flex justify-center p-3 drop-shadow-md">
         <iframe
-          src={pdf.file}
+          onLoadedData={() => setLoading(false)}
+          style={loading ? { display: 'hidden' } : { display: 'f' }}
+          src={pdf.file.preview}
+          // className="h-full"
           width="1280"
           height="724"
           allow="autoplay"
